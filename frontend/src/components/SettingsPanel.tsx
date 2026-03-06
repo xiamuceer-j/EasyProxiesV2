@@ -78,7 +78,8 @@ export default function SettingsPanel() {
           fetchSettings(),
           refreshSubStatus(),
         ])
-        const merged = { ...defaultSettings, ...settingsData }
+        const subscriptions = settingsData.subscriptions || []
+        const merged = { ...defaultSettings, ...settingsData, subscriptions }
         setSettings(merged)
         setSavedSettings(merged)
         setIsDirty(false)
